@@ -28,6 +28,18 @@ public class Main {
         editorHistory.undo(); // Attempting to undo when there are no changes left
         System.out.println("Current state after undo: " + editorHistory.currentState);
 
+        editorHistory.redo();
+        System.out.println("Current state after redo: " + editorHistory.currentState);
+
+        editorHistory.redo();
+        System.out.println("Current state after redo: " + editorHistory.currentState);
+    
+        editorHistory.makeChange("This is a brand new change.");
+        
+        editorHistory.redo();
+        System.out.println("Current state after redo: " + editorHistory.currentState);
+   
+
         // Peek at the top element of the stack
         int topElement = stack.peek();
         System.out.println("Top element: " + topElement);
