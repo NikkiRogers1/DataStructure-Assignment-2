@@ -9,6 +9,24 @@ public class Main {
         stack.push(20);
         stack.push(30);
 
+        
+        EditorHistory editorHistory = new EditorHistory();
+
+        editorHistory.makeChange("Hello");
+        editorHistory.makeChange("Hello Adventurer");
+        editorHistory.makeChange("Hello Adventurer, welcome to the world of Java!");
+
+        editorHistory.undo();
+        System.out.println("Current state after undo: " + editorHistory.currentState);
+        
+        editorHistory.undo();
+        System.out.println("Current state after undo: " + editorHistory.currentState);
+
+        editorHistory.undo();
+        System.out.println("Current state after undo: " + editorHistory.currentState);
+
+        editorHistory.undo(); // Attempting to undo when there are no changes left
+        System.out.println("Current state after undo: " + editorHistory.currentState);
 
         // Peek at the top element of the stack
         int topElement = stack.peek();
@@ -31,6 +49,8 @@ public class Main {
         boolean isEmpty = stack.isEmpty();
         System.out.println("Is the stack empty? " + isEmpty);
 
+
     }
+
 }
 
