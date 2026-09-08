@@ -12,7 +12,31 @@ public class Main {
         
         EditorHistory editorHistory = new EditorHistory();
 
-        editorHistory.makeChange("Hello");
+       
+
+        // Peek at the top element of the stack
+        int topElement = stack.peek();
+        System.out.println("Top element: " + topElement);
+
+        // Pop an element from the stack
+        int poppedElement = stack.pop();
+        System.out.println("Popped element: " + poppedElement);
+
+        int poppedElement2 = stack.pop();
+        System.out.println("Popped element: " + poppedElement2);
+
+        int poppedElement3 = stack.pop();
+        System.out.println("Popped element: " + poppedElement3);
+
+     
+
+
+        // Check if the stack is empty
+        boolean isEmpty = stack.isEmpty();
+        System.out.println("Is the stack empty? " + isEmpty);
+
+
+         editorHistory.makeChange("Hello");
         editorHistory.makeChange("Hello Adventurer");
         editorHistory.makeChange("Hello Adventurer, welcome to the world of Java!");
 
@@ -40,26 +64,26 @@ public class Main {
         System.out.println("Current state after redo: " + editorHistory.currentState);
    
 
-        // Peek at the top element of the stack
-        int topElement = stack.peek();
-        System.out.println("Top element: " + topElement);
 
-        // Pop an element from the stack
-        int poppedElement = stack.pop();
-        System.out.println("Popped element: " + poppedElement);
+        editorHistory.makeChange("Dog");
+        editorHistory.makeChange("Cat");
+        editorHistory.makeChange("Ferret");
 
-        int poppedElement2 = stack.pop();
-        System.out.println("Popped element: " + poppedElement2);
+        editorHistory.undo();
+        System.out.println("Current state after undo: " + editorHistory.currentState);
+        editorHistory.undo();
+        System.out.println("Current state after undo: " + editorHistory.currentState);
 
-        int poppedElement3 = stack.pop();
-        System.out.println("Popped element: " + poppedElement3);
+        editorHistory.redo();
+        System.out.println("Current state after redo: " + editorHistory.currentState);  
 
-     
+        editorHistory.makeChange("Fox");
+        System.out.println("Current state after new change: " + editorHistory.currentState);
+
+        editorHistory.redo(); // Attempting to redo when there are no changes left
+        System.out.println("Current state after redo: " + editorHistory.currentState);
 
 
-        // Check if the stack is empty
-        boolean isEmpty = stack.isEmpty();
-        System.out.println("Is the stack empty? " + isEmpty);
 
 
     }
